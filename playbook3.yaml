@@ -2,15 +2,15 @@
   hosts: localhost
   become: true
   tasks:
-  - name: "ensure Amit user exists"
+  - name: "ensure Amit user absent"
     user:
       name: amit
       state: absent
-  - name: "ensure Alex user exists"
+  - name: "ensure Alex user absent"
     user:
       name: alex
       state: absent
   - name: "ensure Ingrid user exists"
     user:
-      name: alex
+      name: ingrid
       state: present  
