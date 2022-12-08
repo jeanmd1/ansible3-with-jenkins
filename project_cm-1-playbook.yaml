@@ -1,9 +1,9 @@
  - name: "generate war file"
-  hosts: local
-  become: true
-  vars:
+   hosts: local
+   become: true
+   vars:
           gitdir: "/tmp/addressbook-project-1"
-  tasks:
+   tasks:
           - name: "install maven"
             apt:
                     name: maven
