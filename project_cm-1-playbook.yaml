@@ -1,9 +1,9 @@
- - name: "generate war file"
-   hosts: local
-   become: true
-   vars:
+- name: "generate war file"
+  hosts: local
+  become: true
+  vars:
           gitdir: "/tmp/addressbook-project-1"
-   tasks:
+  tasks:
           - name: "install maven"
             apt:
                     name: maven
@@ -17,7 +17,7 @@
                     chdir: "{{ gitdir }}"
                     cmd: "mvn package"
 - name: "setup webserver and deploy WAR"
-  hosts: local
+  hosts: local 
   become: true
   vars:
           gitdir: "/tmp/addressbook-project-1"
@@ -31,13 +31,9 @@
                     src: "{{ gitdir }}/target/addressbook-2.0.war"
                     dest: "/var/lib/tomcat9/webapps/addressbook.war"
             notify: "restart tomcat service post deployment"
-            handlers:
+  handlers:
           - name: "enable tomcat service"
             service:
                     name: tomcat9
                     state: started
                     enabled: yes
-          - name: "restart tomcat service post deployment"
-            service:
-                    name: tomcat9
-                    state: restarted
