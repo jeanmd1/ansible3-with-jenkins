@@ -1,5 +1,5 @@
 - name: "manage worker1 and 2"
-  hosts: all
+  hosts: localhost
   become: true
   tasks:
   - name: "ensure Amit user exists"
