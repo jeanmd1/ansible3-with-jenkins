@@ -1,1 +1,2 @@
-localhost
+ansible_host=ip-172-31-57-249
+local ansible_connection=local
